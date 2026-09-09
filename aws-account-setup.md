@@ -10,11 +10,7 @@ This course requires two AWS Academy courses. Complete them before the first lab
 1. **AWS Academy Cloud Foundations** — core services, IAM, S3, EC2, VPC fundamentals
 2. **AWS Academy Generative AI** — Bedrock, prompt engineering, foundation models
 
-Both are accessed through Canvas. They are free and self-paced. Budget approximately 6–8 hours total. Labs 3, 5, and 6 assume fluency with concepts covered in these courses.
-
-**AWS Educate** (educate.aws) is available for additional optional practice — particularly for SageMaker and Bedrock hands-on exercises. It is not required for course work.
-
-> **"Why can't I just use my $50 AWS Academy Learner Lab account for the labs?"** Because it won't survive the semester: Learner Lab caps you at $50 (Lab 5's endpoints alone can exhaust that), its credentials rotate every ~4 hours (breaking Terraform mid-build), and you can't span the platform across two accounts. Build everything on your personal Free Tier account. Use Learner Lab only for the Academy course exercises.
+Both are accessed through AWS Academy's Canvas (not associated with BYU's Canvas). They are free and self-paced. Budget approximately 6–8 hours total. Labs 3, 5, and 6 assume fluency with concepts covered in these courses.
 
 ---
 
@@ -23,11 +19,11 @@ Both are accessed through Canvas. They are free and self-paced. Budget approxima
 You will use a **personal AWS Free Tier account** for all lab work. This gives you up to **$200 in AWS credits** to spend across the semester.
 
 1. Go to [aws.amazon.com/free](https://aws.amazon.com/free) and click **Create a Free Account**
-2. Use your personal email (not your `@byu.edu` email — AWS Educate uses that one)
-3. Add a valid credit/debit card when prompted — **you will not be charged** as long as you stay within your credit balance
-4. Choose the **Free Plan** during signup, then upgrade to **Paid Plan** after Step 2 below
+2. Use your personal email (not your `@byu.edu` email — AWS Academy uses that one)
+3. Add a valid credit/debit card when prompted — **you will not be charged** as long as you stay within your credit balance.
+4. Choose the **Free Plan** during signup, then upgrade to the **Paid Plan** after Step 2 below.
 
-> **Why Paid Plan?** SageMaker Studio is not available on the Free Plan. Upgrading to Paid is free — it only means AWS has your payment method on file. You will not be charged until your credits run out. Credits last 6 months or until depleted.
+> **Why Paid Plan?** SageMaker Studio is not available on the Free Plan. Upgrading to Paid is free — it only means AWS has your payment method on file. You will not be charged until your credits run out. Credits last for 6 months or until depleted.
 
 ### Your $200 Credit Budget
 
@@ -102,7 +98,7 @@ aws configure
 # Default output format: json
 ```
 
-**Unlike AWS Educate, these credentials do not expire.** You configure once and they persist until you revoke them.
+**These credentials do not expire.** You configure them once, and they persist until you revoke them.
 
 **Use `us-east-1` for all labs.** SageMaker feature availability is most complete in us-east-1.
 
