@@ -5,9 +5,12 @@
 # Uncomment each block as you implement the module it calls.
 
 # module "vpc" {
-#   source      = "../../modules/vpc"
-#   project     = var.project
-#   environment = var.environment
+#   source             = "../../modules/vpc"
+#   project            = var.project
+#   environment        = var.environment
+#   vpc_cidr           = var.vpc_cidr
+#   public_subnet_cidr = var.public_subnet_cidr
+#   availability_zone  = var.availability_zone
 # }
 
 # module "storage" {
@@ -23,9 +26,10 @@
 # }
 
 # module "sagemaker" {
-#   source      = "../../modules/sagemaker"
-#   project     = var.project
-#   environment = var.environment
-#   vpc_id      = module.vpc.vpc_id
-#   subnet_ids  = [module.vpc.public_subnet_id]
+#   source        = "../../modules/sagemaker"
+#   project       = var.project
+#   environment   = var.environment
+#   vpc_id        = module.vpc.vpc_id
+#   subnet_ids    = [module.vpc.public_subnet_id]
+#   instance_type = var.sagemaker_instance_type
 # }

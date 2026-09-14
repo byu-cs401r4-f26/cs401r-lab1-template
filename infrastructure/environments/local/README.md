@@ -113,7 +113,7 @@ Expected, for the VPC you built:
 
 ```json
 { "Id": "vpc-...", "CIDR": "10.0.0.0/16" }
-{ "Id": "subnet-...", "AZ": "us-east-1a", "CIDR": "10.0.1.0/24" }
+{ "Id": "subnet-...", "AZ": "us-east-1a", "CIDR": "10.0.100.0/24" }
 ```
 
 You will also see a `172.31.0.0/16` VPC with six `/20` subnets, one per AZ.

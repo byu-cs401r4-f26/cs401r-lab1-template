@@ -63,7 +63,7 @@ cd ../../..
 AWS_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
 
 # ── Part A: AWS Environment ─────────────────────────────────────────────────
-echo "── Part A: AWS Environment (50 pts total in rubric) ─────────────────────"
+echo "── Part A: AWS Environment (35 pts total in rubric) ─────────────────────"
 
 # A2 — Network
 aws ec2 describe-vpcs --vpc-ids "${VPC_ID}" > /dev/null 2>&1 \
