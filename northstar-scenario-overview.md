@@ -5,7 +5,7 @@
 
 ## Company Profile
 
-**NorthStar Retail** is a specialty retailer operating 400 stores across North America, with a growing direct-to-consumer e-commerce presence. Founded in 1987, NorthStar sells outdoor gear, apparel, and home goods across five major product categories.
+**NorthStar Retail** is a specialty retailer with 400 stores across North America and a growing direct-to-consumer e-commerce presence. Founded in 1987, NorthStar sells outdoor gear, apparel, and home goods across five major product categories.
 
 | Metric | Value |
 |--------|-------|
@@ -42,7 +42,7 @@ The CDO has prioritized three interconnected AI systems:
 **Problem:** NorthStar's customer service team handles 14,000 contacts per day. 62% are routine inquiries (order status, returns, loyalty points) that do not require human judgment.
 **Solution:** An agentic AI system that handles routine contacts autonomously, routing only complex cases to human agents.
 **Business Goal:** Automate 50% of routine contacts; reduce average handle time for escalated cases by 30%.
-**Success Metric:** Automation rate, CSAT score for AI-handled contacts, human escalation rate.
+**Success Metric:** Automation rate, CSAT score (Customer Satisfaction Score) for AI-handled contacts, human escalation rate.
 
 ---
 
@@ -51,7 +51,7 @@ The CDO has prioritized three interconnected AI systems:
 NorthStar currently runs a traditional data warehouse (Snowflake) fed by nightly ETL jobs. The following data sources are available and approved for AI use:
 
 ### Transactional Data
-- **POS System** (400 stores): Every in-store transaction. Batch export nightly at 2 AM ET. Schema: `transaction_id`, `customer_id`, `store_id`, `transaction_date`, `transaction_amount`, `num_items`, `payment_method`, `promotion_code`.
+- **POS System** (Point of Sale): Every in-store transaction. Batch export nightly at 2 AM ET. Schema: `transaction_id`, `customer_id`, `store_id`, `transaction_date`, `transaction_amount`, `num_items`, `payment_method`, `promotion_code`.
 - **E-commerce Platform** (Shopify): Online orders in real-time via webhook. Schema mirrors POS with additions: `session_id`, `device_type`, `referral_source`.
 
 ### Customer Data
@@ -105,14 +105,14 @@ You are building the AI infrastructure that does not yet exist. NorthStar has ap
 
 The AI team reports to Maya Chen (CDO). Key stakeholders:
 
-| Role | Name | Interest |
-|------|------|----------|
-| Chief Data Officer | Maya Chen | Overall AI strategy; board reporting |
-| VP of Marketing | David Park | Churn reduction; offer redemption rates |
-| VP of Customer Experience | Priya Nair | CSAT; agent automation rate |
-| CFO | Robert Hess | Cost per AI interaction; ROI |
-| Chief Privacy Officer | Sarah Okafor | Data governance; regulatory compliance |
-| VP of Technology | James Wu | Platform reliability; integration with existing systems |
+| Role                      | Name         | Interest                                                |
+| ------------------------- | ------------ | ------------------------------------------------------- |
+| Chief Data Officer        | Maya Chen    | Overall AI strategy; board reporting                    |
+| VP of Marketing           | David Park   | Churn reduction; offer redemption rates                 |
+| VP of Customer Experience | Priya Nair   | CSAT; agent automation rate                             |
+| CFO                       | Robert Hess  | Cost per AI interaction; ROI                            |
+| Chief Privacy Officer     | Sarah Okafor | Data governance; regulatory compliance                  |
+| VP of Technology          | James Wu     | Platform reliability; integration with existing systems |
 
 ---
 

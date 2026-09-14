@@ -152,9 +152,9 @@ grep -q "dynamodb_table" infrastructure/environments/dev/backend.tf 2>/dev/null 
   || check "B3 Remote state" "Missing dynamodb_table in backend.tf"
 
 # B5 — LocalStack output captured
-[ -f "docs/lab1-localstack-output.txt" ] \
+[ -f "docs/lab1b-localstack-output.txt" ] \
   && check "B5 LocalStack validation output saved" "PASS" \
-  || check "B5 LocalStack validation output saved" "docs/lab1-localstack-output.txt MISSING"
+  || check "B5 LocalStack validation output saved" "docs/lab1b-localstack-output.txt MISSING"
 
 # ── Shared Deliverables ─────────────────────────────────────────────────────
 echo ""

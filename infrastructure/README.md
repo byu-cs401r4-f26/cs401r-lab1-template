@@ -1,4 +1,4 @@
-# Terraform Module Template — Lab 1 Part B
+# infrastructure/ — Lab 1 Part B Terraform skeleton
 
 Skeleton for Task B1. **It is empty on purpose**: every file declares its
 variables and outputs, and `main.tf` lists the resources you owe, but no
