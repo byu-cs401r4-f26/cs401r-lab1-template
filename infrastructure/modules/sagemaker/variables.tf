@@ -25,3 +25,13 @@ variable "instance_type" {
   type        = string
   default     = "ml.t3.medium"
 }
+
+variable "execution_role_arn" {
+  description = "IAM role Studio assumes for the Domain default user settings and the user profile (the MLEngineer role)"
+  type        = string
+}
+
+variable "security_group_ids" {
+  description = "Security groups attached to Studio apps inside the VPC"
+  type        = list(string)
+}

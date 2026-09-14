@@ -13,4 +13,8 @@
 # minutes to create and to delete. Factor that into your apply/destroy timings
 # for Task B2.
 
+# The Domain needs an execution role (default_user_settings.execution_role)
+# and the security group from modules/vpc; both arrive as variables. See the
+# module call in environments/dev/main.tf.
+
 # TODO: implement the two resources above.

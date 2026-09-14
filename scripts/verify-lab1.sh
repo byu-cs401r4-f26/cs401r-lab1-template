@@ -9,6 +9,8 @@
 #   - VPC exists + public subnet exists
 #   - SageMaker Domain is InService
 #   - Module structure, remote state, repo quality
+#   - Every committed evidence file except this script's own output
+#     (docs/lab1-verify-output.txt is what you are producing right now)
 #
 # Not checked (deferred to Lab 2):
 #   - Lifecycle rules (added once real data flows)
@@ -150,6 +152,15 @@ LITERALS=$(grep -r '"northstar"' infrastructure/modules/ --include="*.tf" \
 grep -q "dynamodb_table" infrastructure/environments/dev/backend.tf 2>/dev/null \
   && check "B3 Remote state: S3 backend + DynamoDB lock" "PASS" \
   || check "B3 Remote state" "Missing dynamodb_table in backend.tf"
+
+# B2 — Apply output captured
+[ -f "docs/lab1b-apply-output.txt" ] \
+  && check "B2 terraform apply output saved" "PASS" \
+  || check "B2 terraform apply output saved" "docs/lab1b-apply-output.txt MISSING"
+
+grep -q "Apply complete" docs/lab1b-apply-output.txt 2>/dev/null \
+  && check "B2 apply output shows Apply complete" "PASS" \
+  || check "B2 apply output shows Apply complete" "not found in docs/lab1b-apply-output.txt"
 
 # B5 — LocalStack output captured
 [ -f "docs/lab1b-localstack-output.txt" ] \

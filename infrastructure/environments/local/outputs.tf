@@ -5,6 +5,11 @@
 #   value       = module.vpc.vpc_id
 # }
 
+# output "public_subnet_id" {
+#   description = "ID of the public subnet"
+#   value       = module.vpc.public_subnet_id
+# }
+
 # output "s3_bucket_name" {
 #   description = "Name of the data bucket"
 #   value       = module.storage.bucket_name
