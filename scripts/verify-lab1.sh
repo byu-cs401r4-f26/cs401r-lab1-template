@@ -88,7 +88,7 @@ PRIVATE_COUNT=$(aws ec2 describe-subnets \
   || check "A2 No private subnets" "FOUND ${PRIVATE_COUNT} — should be 0 in Lab 1"
 
 # A3 — Storage
-aws s3api head-bucket --bucket "${BUCKET}" 2>/dev/null \
+aws s3api head-bucket --bucket "${BUCKET}" >/dev/null 2>&1 \
   && check "A3 S3 bucket exists: ${BUCKET}" "PASS" \
   || check "A3 S3 bucket exists" "BUCKET NOT FOUND"
 
@@ -142,8 +142,10 @@ for mod in vpc iam sagemaker storage; do
 done
 
 # B4 — No hardcoded project name in module .tf files
-LITERALS=$(grep -r '"northstar"' infrastructure/modules/ --include="*.tf" \
-  | grep -v "var\." | grep -v "#" | wc -l | tr -d ' ')
+# `|| true` matters: under `set -o pipefail` a grep with no matches exits 1,
+# which is exactly the passing case, and without it the script would stop here.
+LITERALS=$( { grep -r '"northstar' infrastructure/modules/ --include="*.tf" \
+  | grep -v "var\." | grep -v "#" || true; } | wc -l | tr -d ' ')
 [ "${LITERALS}" -eq 0 ] \
   && check "B4 No hardcoded 'northstar' literals in modules/" "PASS" \
   || check "B4 No hardcoded 'northstar' literals in modules/" "FOUND ${LITERALS} literal(s)"
@@ -183,10 +185,14 @@ grep -q "\.terraform" .gitignore 2>/dev/null \
   && check "S .gitignore covers .terraform/" "PASS" \
   || check "S .gitignore covers .terraform/" "MISSING"
 
-SECRET_HITS=$(git log --all -S "AKIA" --oneline 2>/dev/null | wc -l | tr -d ' ')
-[ "${SECRET_HITS}" -eq 0 ] \
-  && check "S No AWS access keys in git history" "PASS" \
-  || check "S No AWS access keys in git history" "FOUND ${SECRET_HITS} commit(s) — SECURITY VIOLATION"
+# Same scan the TA runs. A bare `git log -S "AKIA"` is wrong here: the word
+# appears in this script, in aws-account-setup.md, and (as AWS's documented
+# placeholder AKIAIOSFODNN7EXAMPLE) in every LocalStack output file.
+if bash scripts/check-secrets.sh >/dev/null 2>&1; then
+  check "S No AWS credentials in git history (scripts/check-secrets.sh)" "PASS"
+else
+  check "S No AWS credentials in git history (scripts/check-secrets.sh)" "FINDINGS — run: bash scripts/check-secrets.sh"
+fi
 
 [ -f "docs/lab1-studio-shutdown.png" ] \
   && check "S Studio shutdown screenshot submitted" "PASS" \
