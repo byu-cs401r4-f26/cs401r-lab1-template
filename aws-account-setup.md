@@ -51,7 +51,7 @@ Your credits are not affected by this. Upgrade is instant.
 Install on your local machine:
 
 ```bash
-# Terraform (version >= 1.6)
+# Terraform (version >= 1.16)
 brew install terraform           # macOS
 # or: https://developer.hashicorp.com/terraform/downloads
 
@@ -85,7 +85,7 @@ Do **not** use your root account credentials for lab work. Create a dedicated IA
 1. **AWS Console → IAM → Users → Create user**
 2. Username: `cs401r-lab`
 3. Attach policy: `AdministratorAccess` (for lab use — never in production)
-4. **Security credentials tab → Create access key → CLI use case**
+4. **IAM Users →** **cs401r-lab → Security credentials tab → Create access key → CLI use case**
 5. Download the `.csv` file — you will not be able to retrieve the secret key again
 
 Configure the CLI with these credentials:
