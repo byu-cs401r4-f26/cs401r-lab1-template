@@ -28,7 +28,7 @@ The CDO has prioritized three interconnected AI systems:
 
 ### System 1: Churn Prediction Model
 **Problem:** NorthStar cannot identify at-risk customers until after they have already left.
-**Solution:** A batch ML model that scores every active customer weekly, predicting **90-day** churn probability — the likelihood that a customer goes silent over the 90 days following the scoring date.
+**Solution:** A batch ML model that scores every active customer daily, predicting **90-day** churn probability — the likelihood that a customer goes silent over the 90 days following the scoring date.
 **Business Goal:** Enable proactive outreach before churn occurs, targeting the top 10% highest-risk customers with retention offers.
 **Success Metric:** Reduce 12-month churn rate from 18% to 14% within one year of deployment.
 
@@ -78,7 +78,7 @@ You are building the AI infrastructure that does not yet exist. NorthStar has ap
 2. **Store and transform** data into features suitable for ML training and inference
 3. **Train and evaluate** three types of AI systems (traditional ML, LLM/RAG, agentic)
 4. **Automate** the model lifecycle from commit to production
-5. **Serve** predictions at the appropriate latency (weekly batch for churn, real-time for offers and agent)
+5. **Serve** predictions at the appropriate latency (daily batch for churn, real-time for offers and agent)
 6. **Monitor** all systems for drift, performance degradation, and business impact
 7. **Measure** the economic and business value of the full platform
 
@@ -91,7 +91,7 @@ You are building the AI infrastructure that does not yet exist. NorthStar has ap
 - The credit-offer component of the offer generation system is subject to FCRA/ECOA non-discrimination requirements
 
 **Operational:**
-- The churn model must produce weekly scores by Monday 6 AM ET (in time for the weekly retention campaign)
+- The churn model must produce fresh scores daily by 6 AM ET (in time for that day's retention campaign; each at-risk customer receives at most one retention offer per week)
 - The offer generation system must respond within 2 seconds for real-time offer display
 - The customer service agent must maintain 99.5% availability during NorthStar's business hours (8 AM–10 PM in all time zones)
 
