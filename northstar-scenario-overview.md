@@ -87,7 +87,7 @@ You are building the AI infrastructure that does not yet exist. NorthStar has ap
 ## Constraints and Requirements
 
 **Regulatory:**
-- Customer PII is subject to GDPR (Canadian customers), CCPA (California customers), and NorthStar's internal data retention policy (24-month raw data retention)
+- Customer PII is subject to PIPEDA and Quebec's Law 25 (Canadian customers), Mexico's federal personal data protection law, the LFPDPPP (Mexican customers), CCPA/CPRA (California customers), the GDPR (online customers in the European Union, where NorthStar ships orders), and NorthStar's internal data retention policy (24-month raw data retention)
 - The credit-offer component of the offer generation system is subject to FCRA/ECOA non-discrimination requirements
 
 **Operational:**
